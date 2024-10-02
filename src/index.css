@@ -357,6 +357,7 @@ table td {
 @media only screen and (max-width: 768px) {
   .menu-container {
     width: 100%;
+    z-index: 1049;
   }
 
   .menu-container img {
@@ -367,10 +368,17 @@ table td {
     left: 0;
   }
 
+  .modal-dialog, .modal-content {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
   .mega-menu {
     width: 100%;
     left: 0 !important;
     overflow-y: auto;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 /*#endregion Responsive*/

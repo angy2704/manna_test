@@ -41,17 +41,21 @@ const Sidebar = ({ sidebarOpen }) => {
   const [openSubmenu1, setOpenSubmenu1] = useState(false);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
   const [showAddMegaMenu, setshowAddMegaMenu] = useState(false);
-  const [submittedData, setSubmittedData] = useState([]); 
+  const [submittedData, setSubmittedData] = useState([]);
   const [show, setShow] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
+
   const [formData, setFormData] = useState({
     utilisateur: "",
     categorie: "",
-    // yearRange: { startDate: new Date(), endDate: new Date() },
+    // periode: { startDate: new Date(), endDate: new Date() },
     soldeActuel: "",
     soldePris: "",
     soldeFutur: "",
@@ -61,25 +65,29 @@ const Sidebar = ({ sidebarOpen }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log("name", name);
-    console.log("value", value);
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
-    console.log("change", formData);
   };
 
- 
-  const handleDateChange = (field, value) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      periode: {
-        ...prevFormData.periode,
-        [field]: value,
-      },
-    }));
-  };
+  // const handleDateChange = (value) => {
+  //   console.log("handleDateChange value", value);
+
+  //   // Assuming value is an object containing startDate and endDate
+  //   const { startDate, endDate } = value;
+  // console.log("startDate",startDate)
+  // console.log("endDate",endDate)
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     periode: {
+  //       ...prevData.periode, // Keep other properties in periode if needed
+  //       startDate, // Update the startDate
+  //       endDate, // Update the endDate
+  //     },
+  //   }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -87,14 +95,19 @@ const Sidebar = ({ sidebarOpen }) => {
     const isFormValid =
       formData.utilisateur &&
       formData.categorie &&
+      // formData.periode.startDate &&
+      // formData.periode.endDate &&
       formData.soldeActuel &&
       formData.soldePris &&
       formData.soldeFutur;
 
     if (!isFormValid) {
+      console.log("Form validation failed", formData);
       alert("Please fill in all required fields.");
-      return; 
+      return;
     }
+
+    console.log("Form Data on Submit:", formData);
 
     const isDuplicate = submittedData.some(
       (data) =>
@@ -107,18 +120,15 @@ const Sidebar = ({ sidebarOpen }) => {
       return;
     }
 
-    
     console.log("form data before dispatch", formData);
     dispatch({ type: "ADD_DATA", payload: formData });
 
-    
     setSubmittedData([...submittedData, formData]);
 
-    
     setFormData({
       utilisateur: "",
       categorie: "",
-      // periode: { startDate: new Date(), endDate: addYears(new Date(), 1) },
+      periode: { startDate: new Date(), endDate: new Date() },
       soldeActuel: "",
       soldePris: "",
       soldeFutur: "",
@@ -147,8 +157,8 @@ const Sidebar = ({ sidebarOpen }) => {
   };
 
   const options = [
-    { value: "1", label: "Darléne Menson Dujon" },
-    { value: "2", label: "Marlon Brandon" },
+    { value: "Darléne Menson Dujon", label: "Darléne Menson Dujon" },
+    { value: "Marlon Brandon", label: "Marlon Brandon" },
   ];
   useEffect(() => {
     console.log("Updated formData:", formData);
@@ -176,8 +186,8 @@ const Sidebar = ({ sidebarOpen }) => {
 
   return (
     <div
-      className={`sidebar ${sidebarOpen ? "closed" : "open"}`}
-      style={{ width: sidebarOpen ? "0" : "200px" }}
+      className={`sidebar ${sidebarOpen ? "open" : "closed"}`}
+      style={{ width: sidebarOpen ? "200px" : "0" }}
     >
       <Nav className="flex-column z-1">
         <Nav.Link href="#">
@@ -226,8 +236,7 @@ const Sidebar = ({ sidebarOpen }) => {
 
         <Nav.Link
           className="d-flex justify-content-between align-items-center collapse-nav-link"
-          onClick={toggleSubmenu}
-          style={{ cursor: "pointer" }}
+          onClick={handleShowModal} style={{ cursor: "pointer" }}
         >
           <div>
             <FontAwesomeIcon icon={faScaleBalanced} />
@@ -274,13 +283,12 @@ const Sidebar = ({ sidebarOpen }) => {
           <div className="backdrop" onClick={closeMegaMenu}></div>
 
           {/* Ajouter Mega Menu */}
-          <div
+          {/* <div
             className="mega-menu bg-light p-4 position-fixed top-0 vh-100 d-flex flex-column justify-content-center"
             style={{ left: "200px", zIndex: "1050" }}
           >
             <div className="align-items-center">
               <img src={Logo} className="w-50 mx-auto d-block mb-5" />
-              {/* You can add specific content for the Ajouter mega menu here */}
               <h3>Ajouter</h3>
 
               <div className="card">
@@ -308,11 +316,14 @@ const Sidebar = ({ sidebarOpen }) => {
                     </div>
 
                     <DateRangePicker
-                      startDate={formData.periode.startDate}
-                      endDate={formData.periode.endDate}
-                      onDateChange={handleDateChange} // Pass handler for date changes
+                      inputLabel="Select Date Range"
+                      value={formData.periode}
+                      onChange={handleDateChange}
+                      isRequired={true}
+                      name="periode"
                     />
-
+                    <p>{formData.periode.startDate.toString()}</p>
+                    <p>{formData.periode.endDate.toString()}</p>
                     <div className="row my-3">
                       <div className="col-md-4 mb-2 mb-md-0">
                         <InputField
@@ -353,7 +364,7 @@ const Sidebar = ({ sidebarOpen }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </>
       )}
 
@@ -381,7 +392,10 @@ const Sidebar = ({ sidebarOpen }) => {
                           selectedCard === card.moduleTitle
                             ? "2px solid #0090F5"
                             : "none",
-                        borderRadius: selectedCard === card.moduleTitle ? "0.375rem" : "0px",
+                        borderRadius:
+                          selectedCard === card.moduleTitle
+                            ? "0.375rem"
+                            : "0px",
                         display: "flex",
                         flexDirection: "column",
                         height: "100%",
@@ -400,6 +414,48 @@ const Sidebar = ({ sidebarOpen }) => {
           </div>
         </>
       )}
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Body>
+          <div>
+          <img src={Logo} className="w-75 mx-auto d-block mb-5" />
+          <div className="row">
+                {cardData.map((card, index) => (
+                  <div className="col-md-3 mb-2" key={index}>
+                    <div
+                      onClick={() => handleCardClick(card.moduleTitle)}
+                      style={{
+                        cursor: "pointer",
+                        border:
+                          selectedCard === card.moduleTitle
+                            ? "2px solid #0090F5"
+                            : "none",
+                        borderRadius:
+                          selectedCard === card.moduleTitle
+                            ? "0.375rem"
+                            : "0px",
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "100%",
+                      }}
+                    >
+                      <Card
+                        imageSrc={card.imageSrc}
+                        moduleTitle={card.moduleTitle}
+                        selected={selectedCard === card.moduleTitle}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Body className="d-flex align-items-center">
@@ -430,12 +486,12 @@ const Sidebar = ({ sidebarOpen }) => {
               </div>
 
               {/* <DateRangePicker
-           inputLabel="Year Range"
-           name="yearRange"
-           value={formData.yearRange}
-           onChange={handleChange}
-           isRequired={true}
-          /> */}
+                inputLabel="Select Date Range"
+                value={formData.periode}
+                onChange={handleDateChange}
+                isRequired={true}
+                name="periode"
+              /> */}
 
               <div className="row my-3">
                 <div className="col-md-4">

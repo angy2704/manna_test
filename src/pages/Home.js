@@ -6,7 +6,7 @@ import Ajuster from "../assets/images/Ajuster.svg";
 import Transferer from "../assets/images/Transferer.svg";
 import Solder from "../assets/images/Solder.svg";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
 const Home = () => {
   const tableData = useSelector((state) => state.tableData);
@@ -14,9 +14,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const handleDelete = (index) => {
-    dispatch({ type: 'DELETE_DATA', payload: index });
+    dispatch({ type: "DELETE_DATA", payload: index });
   };
-
 
   return (
     <div>
@@ -49,7 +48,7 @@ const Home = () => {
               <td className="d-md-flex justify-content-between">
                 <img src={Ajuster} alt="Ajuster" />
                 <img src={Transferer} alt="Transferer" />
-                <img src={Solder} alt="Solder"  />
+                <img src={Solder} alt="Solder" />
               </td>
             </tr>
             <tr>
@@ -67,7 +66,7 @@ const Home = () => {
               <td className="d-md-flex justify-content-between">
                 <img src={Ajuster} alt="Ajuster" />
                 <img src={Transferer} alt="Transferer" />
-                <img src={Solder} alt="Solder"  />
+                <img src={Solder} alt="Solder" />
               </td>
             </tr>
             <tr>
@@ -96,7 +95,11 @@ const Home = () => {
                 <td>
                   <Badge
                     bg={
-                      row.categorie === "Conges Payes" ? "success" : "warning"
+                      row.categorie === "Congés Payés"
+                        ? "info"
+                        : row.categorie === "RTT"
+                        ? "warning"
+                        : "secondary"
                     }
                     className="rounded-circle px-1 py-0 me-2"
                   >
@@ -111,7 +114,12 @@ const Home = () => {
                 <td className="d-md-flex justify-content-between">
                   <img src={Ajuster} alt="Ajuster" />
                   <img src={Transferer} alt="Transferer" />
-                  <img src={Solder} alt="Solder" onClick={() => handleDelete(index)} className="cursor-pointer" />
+                  <img
+                    src={Solder}
+                    alt="Solder"
+                    onClick={() => handleDelete(index)}
+                    className="cursor-pointer"
+                  />
                 </td>
               </tr>
             ))}
