@@ -236,7 +236,7 @@ const Sidebar = ({ sidebarOpen }) => {
 
         <Nav.Link
           className="d-flex justify-content-between align-items-center collapse-nav-link"
-          onClick={handleShowModal} style={{ cursor: "pointer" }}
+          onClick={toggleSubmenu} style={{ cursor: "pointer" }}
         >
           <div>
             <FontAwesomeIcon icon={faScaleBalanced} />
@@ -251,7 +251,7 @@ const Sidebar = ({ sidebarOpen }) => {
 
         {openSubmenu && (
           <div className="ml-3 submenu">
-            <Nav.Link onClick={toggleMegaMenu} className="active">
+            <Nav.Link onClick={handleShowModal} className="active">
               Gestion des soldes
             </Nav.Link>
             <Nav.Link href="#">Ajuster un solde</Nav.Link>
@@ -415,10 +415,10 @@ const Sidebar = ({ sidebarOpen }) => {
         </>
       )}
 
-      <Modal show={showModal} onHide={handleCloseModal}>
+      <Modal show={showModal} onHide={handleCloseModal} className="moduleModal">
         <Modal.Body>
           <div>
-          <img src={Logo} className="w-75 mx-auto d-block mb-5" />
+          <img src={Logo} className="w-50 mx-auto d-block mb-5" />
           <div className="row">
                 {cardData.map((card, index) => (
                   <div className="col-md-3 mb-2" key={index}>

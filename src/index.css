@@ -83,6 +83,10 @@ a {
   cursor: pointer;
 }
 
+.main-layout {
+  overflow-y: hidden;
+}
+
 .content {
   margin-left: 200px;
   flex-grow: 1;
@@ -301,6 +305,12 @@ small {
   --bs-backdrop-opacity: 0.4;
   filter: blur(2px);
   backdrop-filter: blur(2px);
+}
+
+@media (min-width: 576px) {
+ .moduleModal .modal-dialog {
+    max-width: 800px;
+  }
 }
 
 /*#endregion Modal*/
