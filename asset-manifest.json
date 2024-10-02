@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/angy2704/manna_test.git/static/css/main.18b7c7bf.css",
+    "main.js": "/angy2704/manna_test.git/static/js/main.5786954f.js",
+    "static/js/453.b1667f46.chunk.js": "/angy2704/manna_test.git/static/js/453.b1667f46.chunk.js",
+    "static/media/Module_RH.svg": "/angy2704/manna_test.git/static/media/Module_RH.d317d8f036312b7ef5d4eeb53e584541.svg",
+    "static/media/Module_Entretiens.svg": "/angy2704/manna_test.git/static/media/Module_Entretiens.acaf77d3a1bbc273b6bdcf12ffffbcc1.svg",
+    "static/media/Module_SalaireetPAie.svg": "/angy2704/manna_test.git/static/media/Module_SalaireetPAie.a673a90144db436f24069dedcd8a96e7.svg",
+    "static/media/Module_Compétences.svg": "/angy2704/manna_test.git/static/media/Module_Compétences.8e26e927726efbc10638d6f21ea6547b.svg",
+    "static/media/Module_Présence.svg": "/angy2704/manna_test.git/static/media/Module_Présence.834ba3d78dc6cac4db355c10b0b2f9e5.svg",
+    "static/media/Module_Absences.svg": "/angy2704/manna_test.git/static/media/Module_Absences.5272de134a5e95aa324ec5eedbe2e55b.svg",
+    "static/media/bg.png": "/angy2704/manna_test.git/static/media/bg.2aa39f8f89ab78698b79.png",
+    "static/media/Absence_Icon.svg": "/angy2704/manna_test.git/static/media/Absence_Icon.328a226cd267a7f0741d1aac5f658a46.svg",
+    "static/media/Module_Planning.svg": "/angy2704/manna_test.git/static/media/Module_Planning.a7d28872d40b5b063f9721036c1f0bfe.svg",
+    "static/media/Module_Matériels.svg": "/angy2704/manna_test.git/static/media/Module_Matériels.dce476925dc1dbc274f21ec809a675cc.svg",
+    "static/media/Module_NotedeFrais.svg": "/angy2704/manna_test.git/static/media/Module_NotedeFrais.e992093f4a1d71878666cda4fbe29f35.svg",
+    "static/media/Module_Heures.svg": "/angy2704/manna_test.git/static/media/Module_Heures.e508156f31e3e51d14d34784958b50cd.svg",
+    "static/media/Logo.svg": "/angy2704/manna_test.git/static/media/Logo.6e25e83d09eb52b3050477183fb0854a.svg",
+    "static/media/Mdule_Documents.svg": "/angy2704/manna_test.git/static/media/Mdule_Documents.9f29af39513a4741a0bd27258d9cd71b.svg",
+    "static/media/Graphic.svg": "/angy2704/manna_test.git/static/media/Graphic.b8e8174795a9c5a24243cd62a36264dc.svg",
+    "static/media/Settings.svg": "/angy2704/manna_test.git/static/media/Settings.b8b32a1a00cadd974ba2e7f9a6c32c43.svg",
+    "static/media/Ajuster.svg": "/angy2704/manna_test.git/static/media/Ajuster.3f50b51a73b75d8be15cdde907832a4c.svg",
+    "static/media/Help.svg": "/angy2704/manna_test.git/static/media/Help.e180bcb51c7bd3de2fcb5f28ce8163f2.svg",
+    "static/media/Solder.svg": "/angy2704/manna_test.git/static/media/Solder.091f832a603c044d58362bfa9c9efb8c.svg",
+    "static/media/Soldes-gris.svg": "/angy2704/manna_test.git/static/media/Soldes-gris.b6fcc37bf22c817a38701b07fb9b90cf.svg",
+    "static/media/Transferer.svg": "/angy2704/manna_test.git/static/media/Transferer.c0cf0b9bed996349e77bf81bfb20096b.svg",
+    "index.html": "/angy2704/manna_test.git/index.html",
+    "static/media/Burger button.svg": "/angy2704/manna_test.git/static/media/Burger button.e8eeb6ea118cd0c73cd842c2f4e1f1b3.svg",
+    "main.18b7c7bf.css.map": "/angy2704/manna_test.git/static/css/main.18b7c7bf.css.map",
+    "main.5786954f.js.map": "/angy2704/manna_test.git/static/js/main.5786954f.js.map",
+    "453.b1667f46.chunk.js.map": "/angy2704/manna_test.git/static/js/453.b1667f46.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18b7c7bf.css",
+    "static/js/main.5786954f.js"
+  ]
+}
